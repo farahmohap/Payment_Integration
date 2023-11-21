@@ -4,7 +4,8 @@ import 'package:flutter_svg/svg.dart';
 class PaymentMethodItem extends StatelessWidget {
   const PaymentMethodItem({
     super.key,
-    required this.isActive, required this.imagePath,
+    required this.isActive,
+    required this.imagePath,
   });
   final bool isActive;
   final String imagePath;
@@ -38,7 +39,8 @@ class PaymentMethodItem extends StatelessWidget {
                 child: SvgPicture.asset(
               imagePath,
               height: 40,
-              fit: BoxFit.scaleDown,//make the height is the max ,image cant be bigger than it
+              fit: BoxFit
+                  .scaleDown, //make the height is the max ,image cant be bigger than it
             ))),
       ),
     );

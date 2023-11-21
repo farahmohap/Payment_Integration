@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:payment_integration/Features/checkout/presentation/views/payment_details_view.dart';
-import 'package:payment_integration/core/utils/styles.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_integration/Features/checkout/data/models/repos/checkout_repo_impl.dart';
+import 'package:payment_integration/Features/checkout/presentation/views/manager/payment/payment_cubit.dart';
+import 'package:payment_integration/Features/checkout/presentation/views/widgets/payment_methods_bottomsheet.dart';
+import 'package:payment_integration/Features/checkout/presentation/views/widgets/total_price.dart';
+import '../../../../../core/widgets/custom_button.dart';
 import 'orderinfoitem.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -42,69 +45,27 @@ class MyCartViewBody extends StatelessWidget {
             height: 10,
           ),
           CustomButton(
-            text:  "Complete Payment",
+            text: "Complete Payment",
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const PaymentDetailsView();
-              }));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return const PaymentDetailsView();
+              // }));
+
+              showModalBottomSheet(
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  builder: (context) {
+                    return BlocProvider(
+                        create: (context)=>PaymentCubit(CheckoutRepoImp()),
+                        child: const PaymentMethodsBottomSheet());
+                  });
             },
           ),
           const SizedBox(
             height: 12,
           )
         ],
-      ),
-    );
-  }
-}
-
-class TotalPrice extends StatelessWidget {
-  const TotalPrice({super.key, required this.title, required this.value});
-  final String title, value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: Styles.style24,
-        ),
-        const Spacer(),
-        Text(
-          value,
-          textAlign: TextAlign.center,
-          style: Styles.style24,
-        ),
-      ],
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  CustomButton({super.key, this.onTap, required this.text});
-  final void Function()? onTap;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        height: 60,
-        decoration: ShapeDecoration(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          color: const Color(0xff34a853),
-        ),
-        child:  Center(
-          child: Text(
-           text,
-            textAlign: TextAlign.center,
-            style: Styles.style22,
-          ),
-        ),
       ),
     );
   }

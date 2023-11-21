@@ -56,4 +56,3 @@ class CardInfoWidget extends StatelessWidget {
     );
   }
 }
-

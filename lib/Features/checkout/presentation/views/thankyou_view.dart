@@ -7,8 +7,9 @@ class ThankYouView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: buildAppBar(),
-      body: ThankYouViewBody());
+    return Scaffold(
+        appBar: buildAppBar(),
+        body: Transform.translate(
+            offset: Offset(0, -16), child: ThankYouViewBody()));
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_integration/Features/checkout/presentation/views/widgets/payment_item_info.dart';
-
+import 'package:payment_integration/Features/checkout/presentation/views/widgets/total_price.dart';
 import '../../../../../core/utils/styles.dart';
 import 'card_info_widget.dart';
-import 'mycartviewbody.dart';
 
 class ThankaYouCard extends StatelessWidget {
   const ThankaYouCard({
@@ -16,7 +15,7 @@ class ThankaYouCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
-        color: const Color(0xFFD9D9D9),
+        color: const Color(0xFFEDEDED),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -62,7 +61,8 @@ class ThankaYouCard extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const CardInfoWidget(),const Spacer(),
+            const CardInfoWidget(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -88,8 +88,10 @@ class ThankaYouCard extends StatelessWidget {
                   ),
                 )
               ],
+            ),
+            SizedBox(
+              height: (MediaQuery.sizeOf(context).height * .2 + 20 / 2) - 90,
             )
-      ,SizedBox(height:(MediaQuery.sizeOf(context).height*.2+20/2) -29,)
           ],
         ),
       ),

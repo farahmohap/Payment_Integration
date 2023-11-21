@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:payment_integration/Features/checkout/presentation/views/widgets/mycartviewbody.dart';
 import 'package:payment_integration/Features/checkout/presentation/views/widgets/paymentmethodsListView.dart';
+import '../../../../../core/widgets/custom_button.dart';
 import '../thankyou_view.dart';
 import 'custom_credit_card.dart';
 
@@ -43,7 +43,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                   setState(() {});
                 }
               },
-              text: "Payment",
+              text: "Pay",
             ),
           ),
         ),

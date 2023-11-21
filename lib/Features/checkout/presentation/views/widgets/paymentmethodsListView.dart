@@ -29,9 +29,7 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
               child: GestureDetector(
                 onTap: () {
                   activeIndex == index;
-                  setState(() {
-                    
-                  });
+                  setState(() {});
                 },
                 child: PaymentMethodItem(
                   isActive: activeIndex == index, //true
